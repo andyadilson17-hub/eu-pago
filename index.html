@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eu pago - Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-logo">
+            <img src="logo-transparente2.png" alt="eu pago" class="logo-img-placeholder">
+        </div>
+        <div class="header-profile">
+            <div class="notification-badge" data-count="3">
+                <i class="fa-regular fa-bell"></i>
+            </div>
+            <div class="profile-avatar">
+                <i class="fa-solid fa-user"></i>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <!-- HOME -->
+        <section id="homePage" class="page-section active-page">
+
+            <section class="hero-section">
+            <div class="hero-content">
+                <h1>Bem-vindo(a) ao <br><span class="brand-text">eu pago</span></h1>
+                <p class="hero-subtitle">Escaneie os produtos, gere o QR Code, valide no balcão e pague pelo <span class="highlight-text">Multicaixa Express</span>.</p>
+                
+                
+                <button class="btn-scan-main" id="btnMainScan">
+                    <i class="fa-solid fa-barcode"></i> ESCANEAR PRODUTO
+                </button>
+                <span class="btn-hint">Aponte a câmara para o código de barras</span>
+            </div>
+            
+            <div class="hero-image-container">
+                <div class="hero-circle"></div>
+                <img src="cesta-telemovel-transparente.png" alt="Cesta e Telemóvel" class="hero-img-placeholder">
+            </div>
+        </section>
+
+        <section class="status-summary">
+            <div class="status-card">
+                <div class="status-icon icon-red">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </div>
+                <div class="status-info">
+                    <span class="status-label">ITENS NO CARRINHO</span>
+                    <span class="status-value"><strong id="cartCountHeader">4</strong> itens</span>
+                </div>
+            </div>
+            
+            <div class="status-card">
+                <div class="status-icon icon-light-red">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                </div>
+                <div class="status-info">
+                    <span class="status-label">TOTAL ATUAL</span>
+                    <span class="status-value price-text">7.500 Kz</span>
+                </div>
+            </div>
+
+            <div class="status-card">
+                <div class="status-icon icon-green">
+                    <i class="fa-regular fa-circle-check"></i>
+                </div>
+                <div class="status-info">
+                    <span class="status-label">STATUS</span>
+                    <span class="status-value status-active">Em compra</span>
+                    <span class="status-sub">Escaneie produtos</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="actions-section">
+            <h2 class="section-title">O que deseja fazer?</h2>
+            
+            <div class="grid-actions">
+                <div class="action-card card-pink" id="actionScan">
+                    <div class="action-icon"><i class="fa-solid fa-expand"></i></div>
+                    <h3>Escanear Produto</h3>
+                    <p>Adicione produtos pelo código de barras</p>
+                </div>
+
+                <div class="action-card card-light-pink relative-badge" id="actionCart">
+                    <span class="card-badge">4</span>
+                    <div class="action-icon color-red"><i class="fa-solid fa-cart-shopping"></i></div>
+                    <h3>Meu Carrinho</h3>
+                    <p>Veja e edite os produtos da sua compra</p>
+                </div>
+
+                <div class="action-card card-gold" id="actionQr">
+                    <div class="action-icon"><i class="fa-solid fa-qrcode"></i></div>
+                    <h3>Gerar QR Code</h3>
+                    <p>Finalize e gere seu QR Code para validação</p>
+                </div>
+
+                <div class="action-card card-teal" id="actionPay">
+                    <div class="action-icon"><i class="fa-regular fa-credit-card"></i></div>
+                    <h3>Pagamento</h3>
+                    <p>Após validação, pague com Multicaixa Express</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="how-it-works">
+            <h3 class="how-title">Como funciona?</h3>
+            <div class="flow-container">
+                <div class="flow-sidebar-icon">
+                    <i class="fa-solid fa-users-rectangle"></i>
+                </div>
+                <div class="flow-steps">
+                    <div class="step">
+                        <i class="fa-solid fa-barcode"></i>
+                        <p>Escaneie os produtos</p>
+                    </div>
+                    <i class="fa-solid fa-chevron-right arrow-flow"></i>
+                    <div class="step">
+                        <i class="fa-solid fa-qrcode"></i>
+                        <p>Revise e gere o QR Code</p>
+                    </div>
+                    <i class="fa-solid fa-chevron-right arrow-flow"></i>
+                    <div class="step">
+                        <i class="fa-solid fa-table-cells-large"></i>
+                        <p>Apresente ao atendente</p>
+                    </div>
+                    <i class="fa-solid fa-chevron-right arrow-flow"></i>
+                    <div class="step">
+                        <i class="fa-regular fa-credit-card"></i>
+                        <p>Pague com Multicaixa Express</p>
+                    </div>
+                    <i class="fa-solid fa-chevron-right arrow-flow"></i>
+                    <div class="step">
+                        <i class="fa-regular fa-circle-check"></i>
+                        <p>Compra concluída</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        </section>
+
+        <!-- SCANNER -->
+        <section id="scannerPage" class="page-section">
+
+            <div class="page-header">
+                <h2>Nova Compra</h2>
+                <p>Escaneie os produtos</p>
+            </div>
+
+            <div class="purchase-banner">
+
+                <div>
+                    <span>Compra Atual</span>
+                    <strong>7.500 Kz</strong>
+                </div>
+
+                <div>
+                    <span>Itens</span>
+                    <strong>4</strong>
+                </div>
+
+            </div>
+
+            <div class="scanner-stats">
+
+                <div class="scanner-stat">
+                    <span>Produtos</span>
+                    <strong id="scannerProducts">
+                        4
+                    </strong>
+                </div>
+
+                <div class="scanner-stat">
+                    <span>Total</span>
+                    <strong id="scannerTotal">
+                        7.500 Kz
+                    </strong>
+                </div>
+
+            </div>
+
+            <div class="camera-area">
+
+                <div class="scanner-frame"></div>
+
+                <div class="scan-line"></div>
+
+                <i class="fa-solid fa-barcode"></i>
+
+                <p>
+                    Posicione o código de barras
+                    dentro da área de leitura
+                </p>
+
+            </div>
+
+            <div class="scan-status">
+
+                <i class="fa-solid fa-circle-notch"></i>
+
+                Aguardando leitura...
+
+            </div>
+
+            <div class="detected-product">
+
+                <div class="product-preview">
+
+                    <div class="product-image">
+                        <i class="fa-solid fa-box"></i>
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Arroz Bom Preço 5Kg
+                        </h3>
+
+                        <p class="product-price">
+                            3.500 Kz
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="quantity-control">
+
+                    <button>-</button>
+
+                    <span>1</span>
+
+                    <button>+</button>
+
+                </div>
+
+                <div class="scanner-buttons">
+
+                    <button class="btn-add-cart">
+                        Adicionar ao Carrinho
+                    </button>
+
+                    <button class="btn-cancel">
+                        Cancelar
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CARRINHO -->
+        <section id="cartPage" class="page-section">
+            <div class="page-header">
+                <h2>Meu Carrinho</h2>
+                <p>Revise os produtos antes de finalizar</p>
+            </div>
+
+            <div class="cart-summary-top">
+
+                <div class="cart-summary-box">
+
+                    <span>Produtos</span>
+
+                    <strong>4</strong>
+
+                </div>
+
+                <div class="cart-summary-box">
+
+                    <span>Total Atual</span>
+
+                    <strong>7.500 Kz</strong>
+
+                </div>
+
+            </div>
+
+            <!-- PRODUTO 1 -->
+
+            <div class="cart-item">
+
+                <div class="cart-product-image">
+
+                    <i class="fa-solid fa-box"></i>
+
+                </div>
+
+                <div class="cart-product-info">
+
+                    <h3>Arroz Bom Preço 5Kg</h3>
+
+                    <span>3.500 Kz</span>
+
+                    <div class="cart-quantity">
+
+                        <button>-</button>
+
+                        <span>2</span>
+
+                        <button>+</button>
+
+                    </div>
+
+                </div>
+
+                <button class="remove-item">
+
+                    <i class="fa-solid fa-trash"></i>
+
+                </button>
+
+            </div>
+
+            <!-- PRODUTO 2 -->
+
+            <div class="cart-item">
+
+                <div class="cart-product-image">
+
+                    <i class="fa-solid fa-bottle-water"></i>
+
+                </div>
+
+                <div class="cart-product-info">
+
+                    <h3>Água Pura 1.5L</h3>
+
+                    <span>1.000 Kz</span>
+
+                    <div class="cart-quantity">
+
+                        <button>-</button>
+
+                        <span>1</span>
+
+                        <button>+</button>
+
+                    </div>
+
+                </div>
+
+                <button class="remove-item">
+
+                    <i class="fa-solid fa-trash"></i>
+
+                </button>
+
+            </div>
+
+            <!-- RESUMO -->
+
+            <div class="cart-total-card">
+
+                <div class="total-line">
+
+                    <span>Subtotal</span>
+
+                    <strong>7.500 Kz</strong>
+
+                </div>
+
+                <div class="total-line">
+
+                    <span>Taxas</span>
+
+                    <strong>0 Kz</strong>
+
+                </div>
+
+                <div class="total-line total-main">
+
+                    <span>Total</span>
+
+                    <strong>7.500 Kz</strong>
+
+                </div>
+
+            </div>
+
+            <!-- BOTÕES -->
+
+            <div class="cart-actions">
+
+                <button class="btn-continue">
+
+                    Continuar Comprando
+
+                </button>
+
+                <button class="btn-generate-qr">
+
+                    Gerar QR Code
+
+                </button>
+
+            </div>
+        </section>
+
+        <!-- PEDIDOS -->
+        <section id="ordersPage" class="page-section">
+
+        </section>
+
+        <!-- PERFIL -->
+        <section id="profilePage" class="page-section">
+
+        </section>
+
+
+    </main>
+
+    <div class="floating-cart">
+
+        <i class="fa-solid fa-cart-shopping"></i>
+
+        <div>
+
+            <strong>4 itens</strong>
+
+            <span>7.500 Kz</span>
+
+        </div>
+
+    </div>
+
+    <div id="toastMessage " class="toast-message">
+        Produto adicionado com sucesso!
+    </div>
+
+    <nav class="bottom-nav">
+        <a href="#" class="nav-item active">
+            <i class="fa-solid fa-house"></i>
+            <span>Início</span>
+        </a>
+        <a href="#" class="nav-item">
+            <i class="fa-solid fa-bars-staggered"></i>
+            <span>Scanner</span>
+        </a>
+        <a href="#" class="nav-item relative-badge">
+            <span class="nav-badge">4</span>
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span>Carrinho</span>
+        </a>
+        <a href="#" class="nav-item">
+            <i class="fa-regular fa-file-lines"></i>
+            <span>Pedidos</span>
+        </a>
+        <a href="#" class="nav-item">
+            <i class="fa-regular fa-user"></i>
+            <span>Perfil</span>
+        </a>
+    </nav>
+
+    <footer class="footer-copyright">
+        <p>© 2026 eu pago. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

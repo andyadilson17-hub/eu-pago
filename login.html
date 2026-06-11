@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eu pago - Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+    <main class="login-container">
+        
+        <div class="brand-header">
+            <div class="brand-logo-box">
+                <i class="fa-solid fa-wallet"></i>
+            </div>
+            <span class="brand-name">eu pago <span class="brand-suffix">Digital</span></span>
+        </div>
+
+        <div class="login-card">
+            
+            <h1 class="login-title">Bem-vindo de volta</h1>
+            <p class="login-subtitle">Entre na sua conta para continuar.</p>
+
+            <button type="button" class="btn-google" id="btnGoogleLogin">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google Logo" class="google-icon">
+                Google
+            </button>
+
+            <div class="divider">
+                <span>ou com email</span>
+            </div>
+
+            <form id="loginForm" autocomplete="off">
+                
+                <div class="input-group">
+                    <label for="email">Endereço de email</label>
+                    <div class="input-wrapper">
+                        <i class="fa-regular fa-envelope input-icon"></i>
+                        <input type="email" id="email" placeholder="email@exemplo.com" required>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <div class="label-row">
+                        <label for="password">Senha</label>
+                        <a href="#" class="forgot-password-link">Esqueceu?</a>
+                    </div>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-lock input-icon"></i>
+                        <input type="password" id="password" placeholder="••••••••" required>
+                        <i class="fa-regular fa-eye toggle-password" id="togglePassword"></i>
+                    </div>
+                </div>
+
+                <div class="remember-me-container">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="rememberMe">
+                        <span class="custom-checkbox"></span>
+                        Manter sessão iniciada
+                    </label>
+                </div>
+
+                <button type="submit" class="btn-submit">
+                    <i class="fa-solid fa-arrow-right-to-bracket"></i> Entrar na conta
+                </button>
+
+            </form>
+
+            <div class="signup-footer">
+                Não tem conta? <a href="#" class="signup-link">Criar conta</a>
+            </div>
+
+        </div>
+
+        <a href="#" class="back-link">
+            <i class="fa-solid fa-arrow-left"></i> Voltar ao site
+        </a>
+
+    </main>
+
+    <script src="login.js"></script>
+</body>
+</html>
