@@ -712,12 +712,12 @@ body {
    ========================================================================== */
 .bottom-nav {
     background-color: white;
-    position: fixed;
+    position: absolute;
     bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 0;
+    transform: none;
     width: 100%;
-    max-width: 480px;
+    max-width: 100%;
     height: 65px;
     display: flex;
     justify-content: space-around;
@@ -1188,234 +1188,228 @@ body {
    CARRINHO
 ========================================== */
 
-.cart-summary-top{
+/* ==========================================================================
+   ESTILIZAÇÃO PREMIUM DA ABA DO CARRINHO (CART)
+   ========================================================================== */
 
+/* Container Principal da Página */
+#cartPage {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Cabeçalho do Carrinho (Informativo) */
+.cart-header-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 4px;
+    margin-bottom: 4px;
+}
+
+.cart-header-summary h3 {
+    font-size: 18px;
+    color: #1e293b;
+    font-weight: 700;
+}
+
+.cart-header-summary .items-count {
+    font-size: 13px;
+    color: #1677ff;
+    background: rgba(22, 119, 255, 0.1);
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+/* Lista de Produtos */
+.cart-items-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* O Card de cada Produto */
+.cart-item {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 14px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+    border: 1px solid #edf2f7;
+    transition: transform 0.2s ease;
+}
+
+.cart-item:active {
+    transform: scale(0.99);
+}
+
+/* Imagem/Placeholder do Produto */
+.cart-item-img {
+    width: 70px;
+    height: 70px;
+    background: #f1f5f9;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #94a3b8;
+    font-size: 24px;
+    flex-shrink: 0;
+}
+
+/* Detalhes do Texto (Nome e Preço) */
+.cart-item-details {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.cart-item-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1e293b;
+    line-height: 1.4;
+}
+
+.cart-item-price {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+/* Controlo de Quantidade (Botões - / + e Número) */
+.cart-quantity-controls {
+    display: flex;
+    align-items: center;
+    background: #f1f5f9;
+    padding: 4px;
+    border-radius: 12px;
+    gap: 10px;
+}
+
+.btn-qty {
+    width: 28px;
+    height: 28px;
+    border: none;
+    background: #ffffff;
+    color: #1e293b;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+    transition: all 0.15s ease;
+}
+
+.btn-qty:active {
+    background: #edf2f7;
+    transform: scale(0.9);
+}
+
+.qty-number {
+    font-size: 13px;
+    font-weight: 700;
+    color: #1e293b;
+    min-width: 16px;
+    text-align: center;
+}
+
+/* Botão de Remover Item (Lixeira) */
+.btn-remove-item {
+    background: none;
+    border: none;
+    color: #94a3b8;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 4px;
+    transition: color 0.2s ease;
+    margin-left: 4px;
+}
+
+.btn-remove-item:hover, .btn-remove-item:active {
+    color: #ef4444; /* Vermelho vibrante ao apagar */
+}
+
+/* ==========================================
+   RESUMO DE VALORES (TOTALIZER)
+   ========================================== */
+.cart-summary-box {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 18px;
+    margin-top: 8px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.02);
+    border: 1px solid #edf2f7;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: #64748b;
+}
+
+.summary-row.total-row {
+    margin-top: 4px;
+    padding-top: 12px;
+    border-top: 1px dashed #e2e8f0;
+    font-size: 16px;
+    color: #1e293b;
+    font-weight: 700;
+}
+
+.summary-row.total-row .total-amount {
+    font-size: 20px;
+    color: #1677ff; /* Destaque para o preço total */
+    font-weight: 800;
+}
+
+/* ==========================================
+   BOTÃO FINALIZAR PAGAMENTO
+   ========================================== */
+.btn-checkout {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: linear-gradient(135deg, #1677ff 0%, #0056cc 100%);
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 16px;
+    border-radius: 16px;
     display:flex;
-
-    gap:12px;
-
-    margin-bottom:20px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(22, 119, 255, 0.25);
+    transition: all 0.2s ease;
+    margin-top: 4px;
 }
 
-.cart-summary-box{
-
-    flex:1;
-
-    background:white;
-
-    padding:16px;
-
-    border-radius:18px;
-
-    text-align:center;
-
-    box-shadow:
-        0 4px 12px rgba(0,0,0,.05);
+.btn-checkout:active {
+    transform: scale(0.98);
+    background: linear-gradient(135deg, #0056cc 0%, #004099 100%);
 }
 
-.cart-summary-box span{
-
-    display:block;
-
-    font-size:13px;
-
-    color:#777;
+.btn-checkout i {
+    font-size: 14px;
 }
 
-.cart-summary-box strong{
-
-    font-size:22px;
-
-    color:#1677ff;
-}
-
-.cart-item{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:12px;
-
-    background:white;
-
-    padding:14px;
-
-    border-radius:18px;
-
-    margin-bottom:14px;
-
-    box-shadow:
-        0 4px 12px rgba(0,0,0,.05);
-}
-
-.cart-product-image{
-
-    width:65px;
-    height:65px;
-
-    border-radius:16px;
-
-    background:#eef5ff;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    color:#1677ff;
-
-    font-size:26px;
-
-    flex-shrink:0;
-}
-
-.cart-product-info{
-
-    flex:1;
-}
-
-.cart-product-info h3{
-
-    font-size:15px;
-
-    margin-bottom:6px;
-}
-
-.cart-product-info span{
-
-    color:#1677ff;
-
-    font-weight:700;
-}
-
-.cart-quantity{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:10px;
-
-    margin-top:10px;
-}
-
-.cart-quantity button{
-
-    width:32px;
-    height:32px;
-
-    border:none;
-
-    border-radius:10px;
-
-    background:#1677ff;
-
-    color:white;
-
-    font-weight:bold;
-}
-
-.remove-item{
-
-    width:40px;
-    height:40px;
-
-    border:none;
-
-    border-radius:12px;
-
-    background:#fff2f2;
-
-    color:#ff3b30;
-
-    flex-shrink:0;
-}
-
-.cart-total-card{
-
-    background:white;
-
-    padding:18px;
-
-    border-radius:20px;
-
-    margin-top:20px;
-
-    box-shadow:
-        0 4px 12px rgba(0,0,0,.05);
-}
-
-.total-line{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    margin-bottom:12px;
-}
-
-.total-main{
-
-    border-top:
-        1px solid #eee;
-
-    padding-top:15px;
-
-    margin-top:15px;
-
-    font-size:18px;
-}
-
-.cart-actions{
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:12px;
-
-    margin-top:20px;
-}
-
-.btn-continue{
-
-    height:54px;
-
-    border:none;
-
-    border-radius:16px;
-
-    background:#eef5ff;
-
-    color:#1677ff;
-
-    font-weight:700;
-}
-
-.btn-generate-qr{
-
-    height:54px;
-
-    border:none;
-
-    border-radius:16px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #1677ff,
-            #0f4cba
-        );
-
-    color:white;
-
-    font-weight:700;
-
-    box-shadow:
-        0 12px 25px rgba(22,119,255,.25);
-}@media(max-width:380px){
+@media(max-width:380px){
 
     .cart-item{
 
@@ -1449,3 +1443,913 @@ body {
         height:28px;
     }
 }
+
+
+
+
+
+/* ==========================================================================
+   AJUSTE DE IMAGENS DO CARRINHO
+   ========================================================================== */
+
+/* Força o quadrado contentor a manter o tamanho fixo e esconder transbordo */
+.cart-item-img {
+    width: 70px;
+    height: 70px;
+    background: #f1f5f9;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Corta qualquer pedaço da imagem que tente sair para fora */
+    flex-shrink: 0;   /* Impede que o quadrado seja esmagado se o texto for grande */
+}
+
+/* Controla o comportamento da imagem real dentro do quadrado */
+.cart-item-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Recorta e ajusta a imagem proporcionalmente sem a distorcer */
+    display: block;
+}
+
+
+
+/* ================================================= */
+/* DESKTOP PHONE PREVIEW */
+/* ================================================= */
+
+.desktop-preview{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:40px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0f172a,
+            #111827,
+            #1e293b
+        );
+}
+
+.phone-frame{
+
+    width:430px;
+
+    height:900px;
+
+    position:relative;
+
+    background:#111;
+
+    border-radius:55px;
+
+    overflow:hidden;
+
+    border:10px solid #1c1c1c;
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.6),
+        0 15px 35px rgba(0,0,0,.4);
+}
+
+.phone-frame::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:55px;
+
+    pointer-events:none;
+
+    box-shadow:
+        inset 0 2px 5px rgba(255,255,255,.15),
+        inset 0 -2px 5px rgba(0,0,0,.4);
+
+    z-index:1000;
+}
+
+.phone-notch{
+
+    position:absolute;
+
+    top:15px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:170px;
+
+    height:34px;
+
+    background:#000;
+
+    border-radius:20px;
+
+    z-index:2000;
+}
+
+.phone-screen{
+    
+
+    width:100%;
+
+    height:100%;
+
+    overflow-y:auto;
+
+    overflow-x:hidden;
+
+    background:#f8fafc;
+
+    position:relative;
+    padding-bottom: 80px;
+}
+
+.phone-screen::-webkit-scrollbar{
+
+    width:6px;
+}
+
+.phone-screen::-webkit-scrollbar-thumb{
+
+    background:#2563eb;
+
+    border-radius:20px;
+}
+
+.phone-frame::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-60%;
+
+    width:50%;
+
+    height:100%;
+
+    background:
+
+        linear-gradient(
+            to right,
+            transparent,
+            rgba(255,255,255,.08),
+            transparent
+        );
+
+    transform:skewX(-20deg);
+
+    pointer-events:none;
+
+    z-index:1500;
+}
+
+@media (max-width:768px){
+
+    .desktop-preview{
+
+        display:block;
+
+        padding:0;
+
+        background:none;
+    }
+
+    .phone-frame{
+
+        width:auto;
+
+        height:auto;
+
+        border:none;
+
+        border-radius:0;
+
+        box-shadow:none;
+
+        background:none;
+    }
+
+    .phone-notch{
+
+        display:none;
+    }
+
+    .phone-screen{
+
+        overflow:visible;
+
+        height:auto;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Container da Câmara */
+.camera-wrapper {
+    position: relative;
+    width: 100%;
+    height: 320px;
+    background-color: #000;
+    border-radius: 16px;
+    overflow: hidden;
+    margin: 20px 0;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
+}
+
+/* O elemento de vídeo real */
+#webcam {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Garante que a câmara preenche o quadrado sem distorcer */
+}
+
+/* Linha Laser Animada */
+.scanner-laser {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    width: 90%;
+    height: 3px;
+    background-color: #ef4444; /* Vermelho vibrante */
+    box-shadow: 0 0 12px #ef4444;
+    animation: scanning 2s infinite ease-in-out;
+    z-index: 10;
+}
+
+@keyframes scanning {
+    0% { top: 10%; }
+    50% { top: 90%; }
+    100% { top: 10%; }
+}
+
+/* Mensagem de Erro/Estado */
+.camera-error-msg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #94a3b8;
+    font-size: 14px;
+    text-align: center;
+    width: 80%;
+    pointer-events: none;
+}
+
+/* Botões do Scanner */
+.scanner-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    padding: 0 10px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   ESTILIZAÇÃO PREMIUM DA ABA SCANNER
+   ========================================================================== */
+
+/* Card Principal da Aba */
+.scanner-card {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 24px 20px;
+    margin: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
+    text-align: center;
+    border: 1px solid #edf2f7;
+}
+
+/* Cabeçalho do Scanner */
+.scanner-header {
+    margin-bottom: 24px;
+}
+
+.scanner-icon-badge {
+    width: 56px;
+    height: 56px;
+    background: rgba(22, 119, 255, 0.1);
+    color: #1677ff;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin: 0 auto 16px auto;
+}
+
+.scanner-header h3 {
+    font-size: 20px;
+    color: #1e293b;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.scanner-header p {
+    font-size: 13px;
+    color: #64748b;
+    line-height: 1.5;
+    padding: 0 10px;
+}
+
+/* Viewport/Wrapper da Câmara */
+.camera-wrapper {
+    position: relative;
+    width: 100%;
+    height: 280px;
+    background-color: #0f172a; /* Fundo escuro profundo slate */
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 24px;
+    box-shadow: inset 0 0 30px rgba(0,0,0,0.6), 0 8px 20px rgba(0,0,0,0.1);
+}
+
+#webcam {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Alvo/Mira de Enquadramento Central (Overlay) */
+.scanner-target-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 180px;
+    height: 180px;
+    border: 2px dashed rgba(255, 255, 255, 0.4);
+    border-radius: 16px;
+    pointer-events: none;
+    box-shadow: 0 0 0 400px rgba(15, 23, 42, 0.45); /* Escurece os cantos exteriores */
+    z-index: 5;
+}
+
+/* Linha Laser Animada Modernizada */
+.scanner-laser {
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    width: 80%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #1677ff, transparent);
+    box-shadow: 0 0 12px #1677ff, 0 0 4px #1677ff;
+    animation: advanced-scanning 2.5s infinite ease-in-out;
+    z-index: 10;
+}
+
+@keyframes advanced-scanning {
+    0% { top: 20%; opacity: 0.3; }
+    50% { top: 80%; opacity: 1; }
+    100% { top: 20%; opacity: 0.3; }
+}
+
+/* Mensagem de Feedback Textual no Ecrã */
+.camera-error-msg {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(8px);
+    color: #f8fafc;
+    padding: 8px 16px;
+    border-radius: 30px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+    border: 1px solid rgba(255,255,255,0.1);
+    z-index: 12;
+    pointer-events: none;
+}
+
+.camera-error-msg i {
+    color: #3bbb41; /* Verde ativo */
+}
+
+/* ==========================================
+   BOTÕES DE AÇÃO PREMIUM
+   ========================================== */
+.btn-scan-main, .btn-scan-stop {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 14px 24px;
+    border-radius: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(22, 119, 255, 0.2);
+}
+
+/* Botão Ativar (Azul eu pago) */
+.btn-scan-main {
+    background: linear-gradient(135deg, #1677ff 0%, #0056cc 100%);
+    color: #ffffff;
+}
+
+.btn-scan-main:active {
+    transform: scale(0.98);
+    background: linear-gradient(135deg, #0056cc 0%, #004099 100%);
+}
+
+/* Botão Parar (Vermelho / Alerta elegante) */
+.btn-scan-stop {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.2);
+}
+
+.btn-scan-stop:active {
+    transform: scale(0.98);
+}
+
+/* Ícone redondo dentro do botão */
+.btn-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.15);
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    font-size: 12px;
+}
+
+/* Dica de rodapé */
+.scanner-footer-hint {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-size: 11px;
+    color: #94a3b8;
+}
+.scanner-footer-hint i {
+    color: #3bbb41;
+}
+
+
+
+
+
+
+
+/* ==========================================================================
+   ESTILIZAÇÃO PREMIUM DA ABA DE PERFIL (PROFILE)
+   ========================================================================== */
+
+#profilePage {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Card Principal do Perfil */
+.profile-hero-card {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 24px 16px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.02);
+    border: 1px solid #edf2f7;
+}
+
+/* Avatar e Indicador Online */
+.profile-avatar-wrapper {
+    position: relative;
+    width: 85px;
+    height: 85px;
+    margin: 0 auto 14px auto;
+}
+
+.profile-avatar-wrapper img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #1677ff; /* Aro azul da app */
+}
+
+.online-badge {
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    width: 14px;
+    height: 14px;
+    background-color: #3bbb41; /* Verde status activo */
+    border: 2.5px solid #ffffff;
+    border-radius: 50%;
+}
+
+.profile-name {
+    font-size: 19px;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 4px;
+}
+
+.profile-email {
+    font-size: 13px;
+    color: #64748b;
+    margin-bottom: 20px;
+}
+
+/* Caixa de Saldo / Carteira */
+.profile-wallet-box {
+    background: linear-gradient(135deg, #1677ff 0%, #0056cc 100%);
+    border-radius: 16px;
+    padding: 14px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    box-shadow: 0 6px 16px rgba(22, 119, 255, 0.2);
+}
+
+.wallet-info span {
+    display: block;
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.75);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
+}
+
+.wallet-info strong {
+    font-size: 20px;
+    font-weight: 800;
+    color: #ffffff;
+}
+
+.wallet-icon-box {
+    width: 38px;
+    height: 38px;
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+}
+
+/* Listas de Menus */
+.profile-menu-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-section-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+    padding-left: 4px;
+}
+
+.menu-section-title.font-margin {
+    margin-top: 20px;
+}
+
+/* Linha de Opção Individual */
+.profile-menu-item {
+    background: #ffffff;
+    padding: 14px;
+    border-radius: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    border: 1px solid #f1f5f9;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.profile-menu-item:active {
+    transform: scale(0.99);
+    background: #f8fafc;
+}
+
+.menu-item-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.menu-item-left span {
+    font-size: 14px;
+    font-weight: 600;
+    color: #334155;
+}
+
+.menu-arrow {
+    font-size: 12px;
+    color: #cbd5e1;
+}
+
+/* Círculos coloridos dos ícones */
+.menu-icon-circle {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+.blue-icon { background: rgba(22, 119, 255, 0.1); color: #1677ff; }
+.green-icon { background: rgba(59, 187, 65, 0.1); color: #3bbb41; }
+.orange-icon { background: rgba(249, 115, 22, 0.1); color: #f97316; }
+.purple-icon { background: rgba(168, 85, 247, 0.1); color: #a855f7; }
+.gray-icon { background: rgba(148, 163, 184, 0.1); color: #64748b; }
+.red-icon { background: rgba(239, 68, 68, 0.1); color: #ef4444; }
+
+/* Switch simulado de Notificações */
+.toggle-switch-simulated {
+    width: 40px;
+    height: 22px;
+    background: #1677ff;
+    border-radius: 20px;
+    position: relative;
+}
+
+.toggle-switch-simulated::after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    width: 18px;
+    height: 18px;
+    background: #ffffff;
+    border-radius: 50%;
+}
+
+/* Item Especial de Sair */
+.logout-item {
+    border: 1px solid rgba(239, 68, 68, 0.15);
+}
+.logout-item span {
+    color: #ef4444;
+}
+
+
+
+
+
+
+
+/* ==========================================================================
+   ESTILIZAÇÃO PREMIUM DA ABA DE PEDIDOS (ORDERS)
+   ========================================================================== */
+
+#ordersPage {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* Dashboard de Métricas Superior */
+.orders-dashboard {
+    display: flex;
+    gap: 12px;
+}
+
+.metric-card {
+    flex: 1;
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 14px 16px;
+    border: 1px solid #edf2f7;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.01);
+}
+
+.metric-title {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+}
+
+.metric-value {
+    font-size: 18px;
+    font-weight: 800;
+    color: #1e293b;
+}
+
+/* Cabeçalho da Lista */
+.orders-list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 4px;
+}
+
+.orders-list-header h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.btn-filter-simulated {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    padding: 6px 12px;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #64748b;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Lista de Cards de Pedidos */
+.orders-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.order-item-card {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 14px;
+    border: 1px solid #edf2f7;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.01);
+    transition: transform 0.2s ease;
+    cursor: pointer;
+}
+
+.order-item-card:active {
+    transform: scale(0.99);
+    background: #f8fafc;
+}
+
+.order-main-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+/* Círculos dos Ícones dos Pedidos */
+.order-icon-box {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+}
+
+.bg-success-light { background: rgba(59, 187, 65, 0.1); color: #3bbb41; }
+.bg-warning-light { background: rgba(245, 158, 11, 0.1); color: #f59e0b; }
+.bg-danger-light { background: rgba(239, 68, 68, 0.1); color: #ef4444; }
+
+/* Textos do Pedido */
+.order-details {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    overflow: hidden;
+}
+
+.order-code {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.order-date {
+    font-size: 11px;
+    color: #94a3b8;
+}
+
+.order-products-summary {
+    font-size: 12px;
+    color: #64748b;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Corta o texto com '...' se for muito comprido */
+    padding-top: 2px;
+}
+
+/* Lado Direito (Preço e Estado) */
+.order-meta-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+    flex-shrink: 0;
+    margin-left: 8px;
+}
+
+.order-price-value {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+/* Badges de Estado Nativos/Premium */
+.status-badge {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.badge-success { background: rgba(59, 187, 65, 0.15); color: #3bbb41; }
+.badge-warning { background: rgba(245, 158, 11, 0.15); color: #f59e0b; }
+.badge-danger { background: rgba(239, 68, 68, 0.15); color: #ef4444; }
+
+
+
+
+/* Esconde absolutamente todas as abas por padrão */
+.page-section {
+    display: none !important; 
+    width: 100%;
+}
+
+/* Mostra única e exclusivamente a aba que receber a classe 'active-page' */
+.page-section.active-page {
+    display: block !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
