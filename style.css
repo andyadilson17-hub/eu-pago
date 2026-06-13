@@ -315,7 +315,7 @@ body {
     animation:
         floatBasket 4s ease-in-out infinite;
 }
-/*
+
 @keyframes floatBasket{
 
     0%{
@@ -330,7 +330,7 @@ body {
         transform:translateY(0);
     }
 }
-
+/*
  Ajuste Responsivo para telas ligeiramente maiores onde caiba a imagem ao lado */
 @media (min-width: 360px) {
     .hero-image-container {
